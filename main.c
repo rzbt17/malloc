@@ -13,5 +13,6 @@ int main(){
 
     printf("%d", *lol + *lol2);
     scanf("%s",zs);
+    
     printf("%s",zs);
 }

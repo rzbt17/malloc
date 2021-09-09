@@ -6,5 +6,6 @@ struct free_memory_node{
     size_t size;
 };
 void *malloc_p(size_t sz);
+void free_p(void *ptr);
 
 #endif

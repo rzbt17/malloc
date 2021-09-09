@@ -86,3 +86,19 @@ void *malloc_p(size_t sz){
     exit(-1);
 
 }
+//Losing memory if its less tnan 16 bytes. Add malloc minimum. Add freeing a block between two allocated blcoks correctly.
+void free_p(void *ptr){
+    void *real_block_start = ptr-sizeof(size_t);
+    size_t sz = *((size_t *)ptr)+sizeof(size_t);
+    if(ptr < (void *)start){
+        struct free_memory_node *new_start = (struct free_memory_node *) real_block_start;
+        *new_start = *start;
+        return;
+    }
+    struct free_memory_node *it=start;
+    while(it->next!=NULL && (void *)it->next<ptr)
+        it=it->next;
+    
+    it->size+=sz;
+
+}
