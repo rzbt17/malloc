@@ -11,8 +11,10 @@ int main(){
     *lol2=10;
     char *zs = malloc_p(20*sizeof(char));
 
-    printf("%d", *lol + *lol2);
-    scanf("%s",zs);
-    
-    printf("%s",zs);
+    free_p(zs);
+    int *lol3;
+    free_p(lol2);
+    lol3=malloc_p(sizeof(int));
+    scanf("%d", lol3);
+    printf("%d\n", *lol3);
 }
